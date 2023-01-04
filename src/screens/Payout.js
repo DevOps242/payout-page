@@ -1,6 +1,9 @@
 import React from "react";
+import Table from "../components/Table/Table";
 
 import Card from "../components/ui/Card/Card";
+import Tabs from "../components/ui/Tabs/Tabs";
+
 import { convertPenniesToDollars } from "../Utility/Helper";
 
 const Payout = () => {
@@ -31,6 +34,12 @@ const Payout = () => {
             />
           </div>
         </div>
+
+        {/* Tabs */}
+        <Tabs />
+
+        <br />
+        <Table />
       </div>
     </>
   );
