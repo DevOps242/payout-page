@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Table from "../components/Table/Table";
 
 import Card from "../components/ui/Card/Card";
@@ -6,7 +6,11 @@ import Tabs from "../components/ui/Tabs/Tabs";
 
 import { convertPenniesToDollars } from "../Utility/Helper";
 
+import { DATA } from "../data/data";
+
 const Payout = () => {
+  const [data, setData] = useState(DATA.clients);
+
   return (
     <>
       <div className="payout-container">
@@ -39,7 +43,7 @@ const Payout = () => {
         <Tabs />
 
         <br />
-        <Table />
+        <Table data={data} />
       </div>
     </>
   );

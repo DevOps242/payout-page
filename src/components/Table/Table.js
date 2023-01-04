@@ -1,6 +1,49 @@
 import React from "react";
 
-const Table = () => {
+import { convertPenniesToDollars } from "../../Utility/Helper";
+
+const Table = ({ data }) => {
+  let displayData = <p>Data is currently not available</p>;
+
+  if (data.length > 0) {
+    displayData = data.map((affilate) => {
+      return (
+        <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+            Checkbox
+          </td>
+          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            {affilate.affilateName}
+          </td>
+          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            {affilate.recentDate}
+          </td>
+          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            ${convertPenniesToDollars(affilate.revenueGen)}
+          </td>
+          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            ${convertPenniesToDollars(affilate.paidPayout)}
+          </td>
+          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            ${convertPenniesToDollars(affilate.unpaidPayout)}
+          </td>
+          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            ${convertPenniesToDollars(affilate.readyPayout)}
+          </td>
+          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            view
+          </td>
+          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            icon
+          </td>
+          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            button
+          </td>
+        </tr>
+      );
+    });
+  }
+
   return (
     <>
       <div className="table-container">
@@ -73,54 +116,7 @@ const Table = () => {
                       </th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        1
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Mark
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Otto
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        @mdo
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        @mdo
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        @mdo
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        @mdo
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        view
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        icon
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        button
-                      </td>
-                    </tr>
-                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        2
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Jacob
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        Thornton
-                      </td>
-                      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        @fat
-                      </td>
-                    </tr>
-                  </tbody>
+                  <tbody>{displayData}</tbody>
                 </table>
               </div>
             </div>
