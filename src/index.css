@@ -19,7 +19,6 @@ code {
 /* Payouts Screen */
 .payout-container {
   margin: 25px 15px 0px 20px;
-  /* background-color: pink; */
 }
 
 .cards-container {
@@ -60,3 +59,35 @@ code {
 
 }
 
+/* Table Component */
+
+.table-body-text > tr > td{
+  font-weight: 550;
+}
+
+.table-view-button-container{
+  /* background-color: pink; */
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.table-view-button-container:hover{
+  opacity: .64;
+}
+
+.table-view-button-text {
+  color: blue;
+} 
+
+.table-ready-payout-text{
+  color: red;
+}
+
+.table-revenue-generated-text{
+  color: green;
+}
+
+
+ 
+  
