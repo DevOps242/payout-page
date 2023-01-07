@@ -18,5 +18,14 @@ export const DATA = {
       unpaidPayout: 1524000,
       readyPayout: 1524000,
     },
+    {
+      id: 3,
+      affilateName: "Alfred Haux",
+      recentDate: "15 Dec 2022",
+      revenueGen: 14321063,
+      paidPayout: 0,
+      unpaidPayout: 123422,
+      readyPayout: 123422,
+    },
   ],
 };

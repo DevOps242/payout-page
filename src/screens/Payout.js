@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Table from "../components/Table/Table";
 
 import Card from "../components/ui/Card/Card";
@@ -6,10 +6,11 @@ import Tabs from "../components/ui/Tabs/Tabs";
 
 import { convertPenniesToDollars } from "../Utility/Helper";
 
-import { DATA } from "../data/data";
+import PayoutContext from "../store/PayoutContext";
 
 const Payout = () => {
-  const [data, setData] = useState(DATA.clients);
+  const payoutCtx = useContext(PayoutContext);
+  const [data, setData] = useState(payoutCtx.DATA.clients);
 
   return (
     <>
@@ -40,10 +41,7 @@ const Payout = () => {
         </div>
 
         {/* Tabs */}
-        <Tabs />
-
-        <br />
-        <Table data={data} />
+        <Tabs mode="pending" tableData={<Table data={data} />} />
       </div>
     </>
   );

@@ -1,10 +1,14 @@
 import React from "react";
 
+import Button from "../Button/Button";
+
 const Card = ({ title, amount, button }) => {
+  function payAllButtonHandler() {}
+
   return (
     <>
       <div className="flex justify-center">
-        <div className="card-container block p-6 rounded-lg shadow-lg bg0white max-w-sm">
+        <div className="card-container block p-6 rounded-lg shadow-lg bg-white max-w-sm">
           <div className="flex items-center mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -30,12 +34,11 @@ const Card = ({ title, amount, button }) => {
             <p className="text-gray-700 text-base mb-4">${amount}</p>
 
             {button ? (
-              <button
-                type="button"
-                className="card-button mb-4 px-6 py-2.5 bg-blue-600 text-white font-small text-xs leading-tight  rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out "
-              >
-                Pay All
-              </button>
+              <Button
+                title="Pay All"
+                h={25}
+                onPressAction={payAllButtonHandler}
+              />
             ) : null}
           </div>
         </div>
