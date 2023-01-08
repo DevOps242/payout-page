@@ -10,6 +10,7 @@ export const DATA = {
       paidPayout: 0,
       unpaidPayout: 154000,
       readyPayout: 154000,
+      payoutType: "Store Credit",
     },
     {
       id: 2,
@@ -21,6 +22,7 @@ export const DATA = {
       paidPayout: 0,
       unpaidPayout: 15240,
       readyPayout: 15240,
+      payoutType: "Cash",
     },
     {
       id: 3,
@@ -32,6 +34,7 @@ export const DATA = {
       paidPayout: 0,
       unpaidPayout: 123422,
       readyPayout: 123422,
+      payoutType: "Cash",
     },
   ],
 };
