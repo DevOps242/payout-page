@@ -10,10 +10,11 @@ const Dropdown = ({
   h,
   options,
   action,
+  tabs,
 }) => {
   const [open, setOpen] = useState(false);
 
-  function openHandler() {
+  function toggleHandler() {
     setOpen(!open);
   }
 
@@ -24,7 +25,7 @@ const Dropdown = ({
     <>
       <div className="button-container flex">
         <button
-          onClick={openHandler}
+          onClick={toggleHandler}
           style={{
             height: h + "px",
             width: w + "px",
@@ -36,7 +37,7 @@ const Dropdown = ({
           {title}
           <span className="flex ">{icon}</span>
         </button>
-        {open ? <DropdownCard options={options} action /> : null}
+        {open ? <DropdownCard options={options} action tabs={tabs} /> : null}
       </div>
     </>
   );

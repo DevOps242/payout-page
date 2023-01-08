@@ -8,6 +8,7 @@ import Modal from "../components/ui/Modal/Modal";
 import { convertPenniesToDollars } from "../Utility/Helper";
 
 import PayoutContext from "../store/PayoutContext";
+import Payments from "../contianer/Payments/Payments";
 
 const Payout = () => {
   const payoutCtx = useContext(PayoutContext);
@@ -102,6 +103,7 @@ const Payout = () => {
         {/* Tabs */}
         <Tabs
           mode="pending"
+          openModal={openModalHandler}
           tableData={
             <Table
               selectAction={(id) => selectPayoutAffilateHandler(id)}
@@ -115,7 +117,7 @@ const Payout = () => {
 
       <Modal show={modalState} clicked={closedModalHandler}>
         <div className="contianer">
-          <p>Testing Modal</p>
+          <Payments />
         </div>
       </Modal>
     </>

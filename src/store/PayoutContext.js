@@ -13,7 +13,6 @@ export function PayoutProvider({ children }) {
   };
 
   const removePayoutAffilate = (payoutRecord) => {
-    // remove by the id.
     setSelectedPayout((prevState) => [
       ...prevState.filter((item) => {
         return item.id !== payoutRecord.id;

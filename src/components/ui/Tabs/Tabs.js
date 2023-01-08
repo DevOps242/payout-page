@@ -4,7 +4,7 @@ import Dropdown from "../Button/Dropdown/Dropdown";
 
 import PayoutContext from "../../../store/PayoutContext";
 
-const Tabs = ({ mode, tableData }) => {
+const Tabs = ({ mode, tableData, openModal }) => {
   const [tabMode, setTabMode] = useState(null);
   const [inputText, setInputText] = useState("");
 
@@ -17,6 +17,21 @@ const Tabs = ({ mode, tableData }) => {
   if (tabMode === null) {
     setTabMode(mode);
   }
+
+  const actionTabs = [
+    {
+      onPressAction: "test",
+      title: "Mark as paid",
+    },
+    {
+      onPressAction: "test",
+      title: "Reject",
+    },
+    {
+      onPressAction: openModal,
+      title: "Send payouts",
+    },
+  ];
 
   return (
     <>
@@ -63,13 +78,19 @@ const Tabs = ({ mode, tableData }) => {
       <div className="tab-button-container contianer flex">
         <div className="flex w-1/4">
           <div className="flex w-1/4">
-            <Dropdown title="Sort By" h={28} options={{}} />
+            <Dropdown title="Sort By" h={28} options={{}} tabs={actionTabs} />
           </div>
           <div className="flex w-1/4">
-            <Dropdown title="Filter By" h={28} options={{}} />
+            <Dropdown title="Filter By" h={28} options={{}} tabs={actionTabs} />
           </div>
           <div className="flex w-1/4">
-            <Dropdown title="Actions" h={28} options={{}} action />
+            <Dropdown
+              title="Actions"
+              h={28}
+              options={{}}
+              action
+              tabs={actionTabs}
+            />
           </div>
           <div className="flex w-1/4">
             <p className="whitespace-nowrap">

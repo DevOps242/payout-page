@@ -7,7 +7,7 @@ import PayoutContext from "../../store/PayoutContext";
 import { convertPenniesToDollars } from "../../Utility/Helper";
 import Button from "../ui/Button/Button";
 
-const Table = ({ data, selectAction, unselectAction, openModalHandler }) => {
+const Table = ({ data, selectAction, unselectAction, openModal }) => {
   const payoutCtx = useContext(PayoutContext);
 
   const [selectedAffilates, setSelectedAffilates] = useState([]);
@@ -163,7 +163,12 @@ const Table = ({ data, selectAction, unselectAction, openModalHandler }) => {
             </svg>
           </td>
           <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
-            <Button title={"Send payment"} h={30} icon={tempIcon} />
+            <Button
+              title={"Send payment"}
+              h={30}
+              icon={tempIcon}
+              onPressAction={openModal}
+            />
           </td>
         </tr>
       );

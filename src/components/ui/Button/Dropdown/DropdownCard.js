@@ -1,31 +1,12 @@
 import React from "react";
 import Button from "../Button";
 
-const DropdownCard = ({ options, action }) => {
-  function test() {
-    console.log("test");
-  }
-  const tabs = [
-    {
-      onPressAction: test,
-      title: "Mark as paid",
-    },
-    {
-      onPressAction: test,
-      title: "Reject",
-    },
-    {
-      onPressAction: test,
-      title: "Send payouts",
-    },
-  ];
-
+const DropdownCard = ({ options, action, tabs }) => {
   return (
     <>
       <div class="container flex justify-center">
         <div class="dropdown-container block rounded-lg shadow-lg bg-white max-w-sm">
           {tabs.map((item) => {
-            console.log(item);
             if (action) {
               return (
                 <>
