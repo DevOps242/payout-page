@@ -15,8 +15,8 @@ export const DATA = {
       recentDate: "15 Nov 2022",
       revenueGen: 14321000,
       paidPayout: 0,
-      unpaidPayout: 1524000,
-      readyPayout: 1524000,
+      unpaidPayout: 15240,
+      readyPayout: 15240,
     },
     {
       id: 3,

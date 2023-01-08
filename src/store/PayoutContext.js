@@ -3,11 +3,24 @@ import { createContext, useState } from "react";
 import { DATA } from "../data/data";
 
 const PayoutContext = createContext();
-// const [payout, setPayout] = useState();
 
 export function PayoutProvider({ children }) {
+  const [selectedPayout, setSelectedPayout] = useState([]);
+  const [data, setData] = useState({ ...DATA });
+
+  const addPayoutAffilate = ({ payoutRecord }) => {
+    setSelectedPayout((prevState) => [...prevState, { payoutRecord }]);
+  };
+
+  //   const removePayoutAffilate = (id) => {
+  //     // remove by the id.
+  //     setSelectedPayout();
+  //   };
+
   return (
-    <PayoutContext.Provider value={{ DATA }}>{children}</PayoutContext.Provider>
+    <PayoutContext.Provider value={{ data, selectedPayout }}>
+      {children}
+    </PayoutContext.Provider>
   );
 }
 

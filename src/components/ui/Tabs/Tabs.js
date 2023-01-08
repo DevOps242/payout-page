@@ -73,7 +73,7 @@ const Tabs = ({ mode, tableData }) => {
           </div>
           <div className="flex w-1/4">
             <p className="whitespace-nowrap">
-              {payoutCtx.DATA.clients.length} pending payouts
+              {payoutCtx.data.clients.length} pending payouts
             </p>
           </div>
         </div>

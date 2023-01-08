@@ -10,7 +10,33 @@ import PayoutContext from "../store/PayoutContext";
 
 const Payout = () => {
   const payoutCtx = useContext(PayoutContext);
-  const [data, setData] = useState(payoutCtx.DATA.clients);
+
+  const [data, setData] = useState(payoutCtx.data.clients);
+  const [selectedData, setSeletedData] = useState(payoutCtx.selectedPayout);
+
+  function totalPaidPayoutSumHandler(clientData) {
+    let totalPaidPayout = 0;
+    clientData.forEach((item) => {
+      totalPaidPayout += item.paidPayout;
+    });
+    return totalPaidPayout;
+  }
+
+  function totalUnpaidPayoutSumHandler(clientData) {
+    let totalUnpaidPayout = 0;
+    clientData.forEach((item) => {
+      totalUnpaidPayout += item.unpaidPayout;
+    });
+    return totalUnpaidPayout;
+  }
+
+  function totalReadyPayoutSumHandler(clientData) {
+    let totalReadyPayout = 0;
+    clientData.forEach((item) => {
+      totalReadyPayout += item.readyPayout;
+    });
+    return totalReadyPayout;
+  }
 
   return (
     <>
@@ -20,13 +46,18 @@ const Payout = () => {
         <div className="cards-container flex mb-4">
           {/* Card one */}
           <div className="flex-none w-1/3 h-14">
-            <Card title="Total Paid Payouts" amount={0} />
+            <Card
+              title="Total Paid Payouts"
+              amount={convertPenniesToDollars(totalPaidPayoutSumHandler(data))}
+            />
           </div>
           {/* Card two */}
           <div className="flex-none w-1/3">
             <Card
               title="Total Unpaid Payouts"
-              amount={convertPenniesToDollars(18555)}
+              amount={convertPenniesToDollars(
+                totalUnpaidPayoutSumHandler(data)
+              )}
             />
           </div>
 
@@ -34,7 +65,7 @@ const Payout = () => {
           <div className="flex-none w-1/3">
             <Card
               title="Total Ready Payouts"
-              amount={convertPenniesToDollars(18555)}
+              amount={convertPenniesToDollars(totalReadyPayoutSumHandler(data))}
               button={true}
             />
           </div>

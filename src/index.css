@@ -91,7 +91,8 @@ code {
   overflow: auto;
   max-height: 150px;
   background-color: #fff;
-  margin-left: 75px;
+  margin-left: 72px;
+  margin-top: -14px;
 }
 
 .dropdown-menu-container{
