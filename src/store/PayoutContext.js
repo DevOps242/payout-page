@@ -8,15 +8,17 @@ export function PayoutProvider({ children }) {
   const [selectedPayout, setSelectedPayout] = useState([]);
   const [data, setData] = useState({ ...DATA });
 
-  const addPayoutAffilate = ({ payoutRecord }) => {
-    setSelectedPayout((prevState) => [{ payoutRecord }, ...prevState]);
-
-    console.log(selectedPayout);
+  const addPayoutAffilate = (payoutRecord) => {
+    setSelectedPayout((prevState) => [payoutRecord, ...prevState]);
   };
 
-  const removePayoutAffilate = (id) => {
+  const removePayoutAffilate = (payoutRecord) => {
     // remove by the id.
-    setSelectedPayout();
+    setSelectedPayout((prevState) => [
+      ...prevState.filter((item) => {
+        return item.id !== payoutRecord.id;
+      }),
+    ]);
   };
 
   return (

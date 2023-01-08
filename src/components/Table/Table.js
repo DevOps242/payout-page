@@ -8,9 +8,26 @@ import { convertPenniesToDollars } from "../../Utility/Helper";
 import Button from "../ui/Button/Button";
 
 const Table = ({ data, selectAction, unselectAction }) => {
-  // const payoutCtx = useContext(PayoutContext);
+  const payoutCtx = useContext(PayoutContext);
 
   const [selectedAffilates, setSelectedAffilates] = useState([]);
+  const [allCheckboxSelector, setAllCheckboxSelector] = useState(true);
+
+  function allSelectedToggleHandler() {
+    setAllCheckboxSelector(!allCheckboxSelector);
+
+    if (allCheckboxSelector) {
+      setSelectedAffilates(payoutCtx.data.clients);
+      // payoutCtx.addPayoutAffilate(selectedAffilates);
+    } else {
+      setSelectedAffilates([]);
+      // payoutCtx.removePayoutAffilate(selectedAffilates);
+    }
+
+    console.log(payoutCtx.selectedPayout);
+    console.log(selectedAffilates);
+    return;
+  }
 
   function toggleSelectedAffilate(event, affilate) {
     if (
@@ -18,21 +35,18 @@ const Table = ({ data, selectAction, unselectAction }) => {
         return item.id === affilate.id;
       })
     ) {
-      console.log("removing....");
       // uncheck it and remove
-      setSelectedAffilates(
-        (prevState) => [...prevState],
-        selectedAffilates.filter((item) => {
+      setSelectedAffilates((prevState) => [
+        ...prevState.filter((item) => {
           return item.id !== affilate.id;
-        })
-      );
+        }),
+      ]);
       unselectAction(affilate.id);
     } else {
       // check it and add
-      setSelectedAffilates((prevState) => [{ affilate }, ...prevState]);
+      setSelectedAffilates((prevState) => [affilate, ...prevState]);
       selectAction(affilate.id);
     }
-    console.log(selectedAffilates);
     return;
   }
 
@@ -73,9 +87,13 @@ const Table = ({ data, selectAction, unselectAction }) => {
                     value=""
                     id="flexCheckDefault3"
                     onChange={(e) => toggleSelectedAffilate(e, affilate)}
-                    checked={selectedAffilates.find((item) => {
-                      return item.id === affilate.id;
-                    })}
+                    checked={
+                      selectedAffilates.find((item) => {
+                        return item.id === affilate.id;
+                      })
+                        ? true
+                        : false
+                    }
                   />
                 </div>
               </div>
@@ -174,6 +192,7 @@ const Table = ({ data, selectAction, unselectAction }) => {
                                 type="checkbox"
                                 value=""
                                 id="flexCheckDefault3"
+                                onChange={() => allSelectedToggleHandler()}
                               />
                             </div>
                           </div>

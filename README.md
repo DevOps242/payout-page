@@ -15,20 +15,20 @@ that haven't been processed by them yet. Feel free to use any dummy information 
 want for the line items (fakenamegenerator.com is a useful tool for this). Screenshots
 are shown on the next page. The following features should be built with React:
 
-- • Responsive design that works on all screen sizes, down to the "iPhone SE" option in Chrome dev tools
-- • Ability to select line items
-- • All the functionalities should contains a Jest test case
-- • Ability to select actions from the dropdowns
-- • Only the "Send payouts" feature needs to actually do anything, the rest of the action
+- Responsive design that works on all screen sizes, down to the "iPhone SE" option in Chrome dev tools
+- Ability to select line items
+- All the functionalities should contains a Jest test case
+- Ability to select actions from the dropdowns
+- Only the "Send payouts" feature needs to actually do anything, the rest of the action
   buttons should do nothing
-- • The "Pay All" button at the top of the page, along with the "Send payouts" and
+- The "Pay All" button at the top of the page, along with the "Send payouts" and
   individual "Send payment" buttons should open the payments modal
-- • The payments modal should show a list of all affiliates, along with their associated
+- The payments modal should show a list of all affiliates, along with their associated
   payout amount and payout method (include a mix of "Store Credit" and "Cash")
-- • There should be a checkbox to the left of each affiliate. When checked or
+- There should be a checkbox to the left of each affiliate. When checked or
   unchecked, the total at the bottom should be dynamically updated
-- • When the "Send payouts" button is pressed, an array of objects containing the
+- When the "Send payouts" button is pressed, an array of objects containing the
   selected affiliates' names and payout amounts should be printed to the console
-- • Clicking anywhere outside the modal should close it
+- Clicking anywhere outside the modal should close it
 
 ## Images:

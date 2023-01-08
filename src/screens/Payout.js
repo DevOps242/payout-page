@@ -39,17 +39,20 @@ const Payout = () => {
   }
 
   function selectPayoutAffilateHandler(id) {
-    const affilate = data.filter((item) => {
+    const affilate = data.find((item) => {
       return item.id === id;
     });
 
-    payoutCtx.addPayoutAffilate({ affilate });
-    setSeletedData((prevState) => [{ affilate }, ...prevState]);
-    console.log("added");
+    payoutCtx.addPayoutAffilate(affilate);
+    setSeletedData((prevState) => [affilate, ...prevState]);
   }
 
   function removePayoutAffilateHandler(id) {
-    console.log("removed");
+    const affilate = data.find((item) => {
+      return item.id === id;
+    });
+    payoutCtx.removePayoutAffilate(affilate);
+    setSeletedData((prevState) => [affilate, ...prevState]);
   }
 
   return (
