@@ -38,6 +38,20 @@ const Payout = () => {
     return totalReadyPayout;
   }
 
+  function selectPayoutAffilateHandler(id) {
+    const affilate = data.filter((item) => {
+      return item.id === id;
+    });
+
+    payoutCtx.addPayoutAffilate({ affilate });
+    setSeletedData((prevState) => [{ affilate }, ...prevState]);
+    console.log("added");
+  }
+
+  function removePayoutAffilateHandler(id) {
+    console.log("removed");
+  }
+
   return (
     <>
       <div className="payout-container">
@@ -72,7 +86,16 @@ const Payout = () => {
         </div>
 
         {/* Tabs */}
-        <Tabs mode="pending" tableData={<Table data={data} />} />
+        <Tabs
+          mode="pending"
+          tableData={
+            <Table
+              selectAction={(id) => selectPayoutAffilateHandler(id)}
+              unselectAction={(id) => removePayoutAffilateHandler(id)}
+              data={data}
+            />
+          }
+        />
       </div>
     </>
   );

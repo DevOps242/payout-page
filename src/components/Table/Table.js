@@ -1,11 +1,41 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+
+import PayoutContext from "../../store/PayoutContext";
 
 // npm install @heroicons/react
 
 import { convertPenniesToDollars } from "../../Utility/Helper";
 import Button from "../ui/Button/Button";
 
-const Table = ({ data }) => {
+const Table = ({ data, selectAction, unselectAction }) => {
+  // const payoutCtx = useContext(PayoutContext);
+
+  const [selectedAffilates, setSelectedAffilates] = useState([]);
+
+  function toggleSelectedAffilate(event, affilate) {
+    if (
+      selectedAffilates.find((item) => {
+        return item.id === affilate.id;
+      })
+    ) {
+      console.log("removing....");
+      // uncheck it and remove
+      setSelectedAffilates(
+        (prevState) => [...prevState],
+        selectedAffilates.filter((item) => {
+          return item.id !== affilate.id;
+        })
+      );
+      unselectAction(affilate.id);
+    } else {
+      // check it and add
+      setSelectedAffilates((prevState) => [{ affilate }, ...prevState]);
+      selectAction(affilate.id);
+    }
+    console.log(selectedAffilates);
+    return;
+  }
+
   // temp icon until i get to better internet
   let tempIcon = (
     <svg
@@ -42,6 +72,10 @@ const Table = ({ data }) => {
                     type="checkbox"
                     value=""
                     id="flexCheckDefault3"
+                    onChange={(e) => toggleSelectedAffilate(e, affilate)}
+                    checked={selectedAffilates.find((item) => {
+                      return item.id === affilate.id;
+                    })}
                   />
                 </div>
               </div>
@@ -120,7 +154,7 @@ const Table = ({ data }) => {
 
   return (
     <>
-      <div classNameName="table-container">
+      <div className="table-container">
         <div className="flex flex-col">
           <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">

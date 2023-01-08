@@ -9,16 +9,20 @@ export function PayoutProvider({ children }) {
   const [data, setData] = useState({ ...DATA });
 
   const addPayoutAffilate = ({ payoutRecord }) => {
-    setSelectedPayout((prevState) => [...prevState, { payoutRecord }]);
+    setSelectedPayout((prevState) => [{ payoutRecord }, ...prevState]);
+
+    console.log(selectedPayout);
   };
 
-  //   const removePayoutAffilate = (id) => {
-  //     // remove by the id.
-  //     setSelectedPayout();
-  //   };
+  const removePayoutAffilate = (id) => {
+    // remove by the id.
+    setSelectedPayout();
+  };
 
   return (
-    <PayoutContext.Provider value={{ data, selectedPayout }}>
+    <PayoutContext.Provider
+      value={{ data, selectedPayout, addPayoutAffilate, removePayoutAffilate }}
+    >
       {children}
     </PayoutContext.Provider>
   );
