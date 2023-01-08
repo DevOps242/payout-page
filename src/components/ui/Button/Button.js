@@ -17,7 +17,7 @@ const Button = ({
     <>
       <div className="button-container flex">
         <button
-          onClick={() => onPressAction}
+          onClick={() => onPressAction()}
           style={{
             height: h + "px",
             width: w + "px",

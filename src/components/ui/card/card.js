@@ -2,8 +2,11 @@ import React from "react";
 
 import Button from "../Button/Button";
 
-const Card = ({ title, amount, button }) => {
-  function payAllButtonHandler() {}
+const Card = ({ title, amount, button, openModal }) => {
+  function payAllButtonHandler() {
+    console.log("testing button");
+    openModal();
+  }
 
   return (
     <>

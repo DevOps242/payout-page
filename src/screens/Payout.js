@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
-import Table from "../components/Table/Table";
 
+import Table from "../components/Table/Table";
 import Card from "../components/ui/Card/Card";
 import Tabs from "../components/ui/Tabs/Tabs";
+import Modal from "../components/ui/Modal/Modal";
 
 import { convertPenniesToDollars } from "../Utility/Helper";
 
@@ -13,6 +14,7 @@ const Payout = () => {
 
   const [data, setData] = useState(payoutCtx.data.clients);
   const [selectedData, setSeletedData] = useState(payoutCtx.selectedPayout);
+  const [modalState, setModalState] = useState(false);
 
   function totalPaidPayoutSumHandler(clientData) {
     let totalPaidPayout = 0;
@@ -55,6 +57,14 @@ const Payout = () => {
     setSeletedData((prevState) => [affilate, ...prevState]);
   }
 
+  function closedModalHandler() {
+    setModalState(false);
+  }
+
+  function openModalHandler() {
+    setModalState(true);
+  }
+
   return (
     <>
       <div className="payout-container">
@@ -84,6 +94,7 @@ const Payout = () => {
               title="Total Ready Payouts"
               amount={convertPenniesToDollars(totalReadyPayoutSumHandler(data))}
               button={true}
+              openModal={openModalHandler}
             />
           </div>
         </div>
@@ -96,10 +107,17 @@ const Payout = () => {
               selectAction={(id) => selectPayoutAffilateHandler(id)}
               unselectAction={(id) => removePayoutAffilateHandler(id)}
               data={data}
+              openModal={openModalHandler}
             />
           }
         />
       </div>
+
+      <Modal show={modalState} clicked={closedModalHandler}>
+        <div className="contianer">
+          <p>Testing Modal</p>
+        </div>
+      </Modal>
     </>
   );
 };

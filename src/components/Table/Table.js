@@ -7,7 +7,7 @@ import PayoutContext from "../../store/PayoutContext";
 import { convertPenniesToDollars } from "../../Utility/Helper";
 import Button from "../ui/Button/Button";
 
-const Table = ({ data, selectAction, unselectAction }) => {
+const Table = ({ data, selectAction, unselectAction, openModalHandler }) => {
   const payoutCtx = useContext(PayoutContext);
 
   const [selectedAffilates, setSelectedAffilates] = useState([]);
