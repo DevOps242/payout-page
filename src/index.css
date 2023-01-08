@@ -152,19 +152,21 @@ code {
 }
 
 /* Modal Component */
-
 .modal {
   position: fixed;
   z-index: 500;
   background-color: white;
-  width: 70%;
+  min-width: 25%;
+  max-width: 60%;
+  width: 45%;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px black;
-  padding: 16px;
+  padding: 5px;
   left: 15%;
-  top: 30%;
+  top: 10%;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
+  overflow: scroll;
 }
 
 @media (min-width: 600px) {
@@ -174,4 +176,20 @@ code {
   }
 }
  
+/* Payout Modal*/
+.payment-modal-container{
+  width:100%;
+  background-color: pink;
+  padding: 30px;
+  overflow: scroll;
+}
+
+.back-button{
+  color: blue;
+}
+.back-button:hover{
+  cursor: pointer;
+  opacity: .60;
+}
+
   

@@ -58,7 +58,7 @@ const Payout = () => {
     setSeletedData((prevState) => [affilate, ...prevState]);
   }
 
-  function closedModalHandler() {
+  function closeModalHandler() {
     setModalState(false);
   }
 
@@ -115,10 +115,8 @@ const Payout = () => {
         />
       </div>
 
-      <Modal show={modalState} clicked={closedModalHandler}>
-        <div className="contianer">
-          <Payments />
-        </div>
+      <Modal show={modalState} clicked={closeModalHandler}>
+        <Payments closeModal={closeModalHandler} />
       </Modal>
     </>
   );
