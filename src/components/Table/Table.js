@@ -24,8 +24,8 @@ const Table = ({ data, selectAction, unselectAction, openModal }) => {
       // payoutCtx.removePayoutAffilate(selectedAffilates);
     }
 
-    console.log(payoutCtx.selectedPayout);
-    console.log(selectedAffilates);
+    // console.log(payoutCtx.selectedPayout);
+    // console.log(selectedAffilates);
     return;
   }
 

@@ -122,6 +122,4 @@ const Payout = () => {
   );
 };
 
-// 10, 000 - $100;
-
 export default Payout;

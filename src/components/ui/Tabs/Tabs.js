@@ -18,18 +18,46 @@ const Tabs = ({ mode, tableData, openModal }) => {
     setTabMode(mode);
   }
 
+  const downIcon = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 26"
+      strokeWidth={2}
+      stroke="currentColor"
+      className="w-4 h-4"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  );
+
   const actionTabs = [
     {
-      onPressAction: "test",
+      onPressAction: () => console.log("Mark as paid"),
       title: "Mark as paid",
     },
     {
-      onPressAction: "test",
+      onPressAction: () => console.log("Reject"),
       title: "Reject",
     },
     {
       onPressAction: openModal,
       title: "Send payouts",
+    },
+  ];
+
+  const sortTabs = [
+    {
+      onPressAction: "test",
+      title: "Reveneue Generated",
+    },
+    {
+      onPressAction: "test",
+      title: "Most Recent Referral",
     },
   ];
 
@@ -78,10 +106,22 @@ const Tabs = ({ mode, tableData, openModal }) => {
       <div className="tab-button-container contianer flex">
         <div className="flex w-1/4">
           <div className="flex w-1/4">
-            <Dropdown title="Sort By" h={28} options={{}} tabs={actionTabs} />
+            <Dropdown
+              title="Sort By"
+              h={28}
+              options={{}}
+              tabs={sortTabs}
+              icon={downIcon}
+            />
           </div>
           <div className="flex w-1/4">
-            <Dropdown title="Filter By" h={28} options={{}} tabs={actionTabs} />
+            <Dropdown
+              title="Filter By"
+              h={28}
+              options={{}}
+              tabs={sortTabs}
+              icon={downIcon}
+            />
           </div>
           <div className="flex w-1/4">
             <Dropdown
@@ -90,6 +130,7 @@ const Tabs = ({ mode, tableData, openModal }) => {
               options={{}}
               action
               tabs={actionTabs}
+              icon={downIcon}
             />
           </div>
           <div className="flex w-1/4">

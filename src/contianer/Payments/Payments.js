@@ -177,8 +177,7 @@ const Payments = ({ closeModal }) => {
                   </td>
                   <td></td>
                   <td className="text-sm font-bold text-black-1000 px-6 py-4 text-center">
-                    {/* Store Credit Types */}$
-                    {convertPenniesToDollars(storeCredit)}
+                    ${convertPenniesToDollars(storeCredit)}
                   </td>
                 </tr>
                 <tr className="bg-white border-b dark:border-gray-250">
@@ -187,8 +186,7 @@ const Payments = ({ closeModal }) => {
                   </td>
                   <td></td>
                   <td className="text-sm font-bold text-black-1000 px-6 py-4 text-center">
-                    {/* Cash Payments Types */}$
-                    {convertPenniesToDollars(tremendous)}
+                    ${convertPenniesToDollars(tremendous)}
                   </td>
                 </tr>
                 <tr>
@@ -197,16 +195,15 @@ const Payments = ({ closeModal }) => {
                   </td>
                   <td></td>
                   <td className="text-sm font-bold text-black-1000 px-6 py-4 text-center">
-                    {/* Total amount */}$
-                    {convertPenniesToDollars(tremendous + storeCredit)}
+                    ${convertPenniesToDollars(tremendous + storeCredit)}
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-        {/* Send Payout button */}
       </div>
+      {/* Send Payout button */}
       <div className="text-center py-3 px-6 text-gray-700 w-full">
         <Button
           title="Send payouts"
