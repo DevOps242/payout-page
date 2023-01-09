@@ -4,7 +4,6 @@ import Button from "../Button/Button";
 
 const Card = ({ title, amount, button, openModal }) => {
   function payAllButtonHandler() {
-    console.log("testing button");
     openModal();
   }
 
@@ -40,7 +39,7 @@ const Card = ({ title, amount, button, openModal }) => {
               <Button
                 title="Pay All"
                 h={25}
-                onPressAction={payAllButtonHandler}
+                onPressAction={() => payAllButtonHandler()}
               />
             ) : null}
           </div>
