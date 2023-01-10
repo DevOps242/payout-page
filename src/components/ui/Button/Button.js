@@ -8,7 +8,11 @@ const Button = ({ onPressAction, title, icon, color, size, w, h }) => {
     <>
       <div className="button-container">
         <button
-          onClick={() => onPressAction()}
+          onClick={
+            onPressAction != null
+              ? () => onPressAction()
+              : () => console.log("Pressed " + title + " Button")
+          }
           style={{
             height: h + "px",
             width: w + "px",

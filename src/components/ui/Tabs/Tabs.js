@@ -52,12 +52,26 @@ const Tabs = ({ mode, tableData, openModal }) => {
 
   const sortTabs = [
     {
-      onPressAction: "test",
+      onPressAction: () => console.log("Most Recent"),
       title: "Reveneue Generated",
     },
     {
-      onPressAction: "test",
+      onPressAction: () => console.log("Most Recent"),
       title: "Most Recent Referral",
+    },
+  ];
+  const filterTabs = [
+    {
+      onPressAction: () => console.log("All pending payouts"),
+      title: "All pending payouts",
+    },
+    {
+      onPressAction: () => console.log("Ready Payouts"),
+      title: "Ready Payouts",
+    },
+    {
+      onPressAction: () => console.log("No Leaks"),
+      title: "No Leaks",
     },
   ];
 
@@ -104,8 +118,8 @@ const Tabs = ({ mode, tableData, openModal }) => {
 
       {/* Build the table and search sections. */}
       <div className="tab-button-container contianer flex">
-        <div className="flex w-1/4">
-          <div className="flex w-1/4">
+        <div className="container flex w-1/4">
+          <div className="container flex w-1/4">
             <Dropdown
               title="Sort By"
               h={28}
@@ -114,16 +128,16 @@ const Tabs = ({ mode, tableData, openModal }) => {
               icon={downIcon}
             />
           </div>
-          <div className="flex w-1/4">
+          <div className="container flex w-1/4">
             <Dropdown
               title="Filter By"
               h={28}
               options={{}}
-              tabs={sortTabs}
+              tabs={filterTabs}
               icon={downIcon}
             />
           </div>
-          <div className="flex w-1/4">
+          <div className="container flex w-1/4">
             <Dropdown
               title="Actions"
               h={28}
@@ -133,7 +147,7 @@ const Tabs = ({ mode, tableData, openModal }) => {
               icon={downIcon}
             />
           </div>
-          <div className="flex w-1/4">
+          <div className="container flex w-1/4">
             <p className="whitespace-nowrap">
               {payoutCtx.data.clients.length} pending payouts
             </p>

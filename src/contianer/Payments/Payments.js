@@ -80,8 +80,8 @@ const Payments = ({ closeModal }) => {
   return (
     <>
       <div className="flex-1 payment-modal-container">
-        <div class="flex flex-row container w-full mb-5">
-          <div class="basis-1/7">
+        <div className="flex flex-row container w-full mb-5">
+          <div className="basis-1/7">
             <p className="flex back-button text-center" onClick={closeModal}>
               <span className="mr-1">
                 <svg
@@ -102,7 +102,7 @@ const Payments = ({ closeModal }) => {
               Back
             </p>
           </div>
-          <div class="basis-3/4 text-center">
+          <div className="basis-3/4 text-center">
             <p className="test">Confirm Payouts</p>
           </div>
         </div>

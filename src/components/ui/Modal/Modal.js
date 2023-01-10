@@ -7,7 +7,7 @@ const modal = ({ children, show, clicked }) => {
     <>
       <Backdrop show={show} clicked={clicked} />
       <div
-        className="modal"
+        className="modal "
         style={{
           transform: show ? "translateY(0)" : "translateY(-100vh)",
           opacity: show ? "1" : "0",

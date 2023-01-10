@@ -21,6 +21,8 @@ code {
   margin: 25px 15px 0px 20px;
 }
 
+
+/* Card Component */
 .cards-container {
   max-width: 65%;
 }
@@ -172,13 +174,6 @@ code {
   margin: 3px;
 }
 
-@media (min-width: 600px) {
-  .modal {
-      width: 500px;
-      left: calc(50% - 250px);
-  }
-}
-
 /* Payout Modal*/
 .payment-modal-container{
   width: 100%;
@@ -210,3 +205,103 @@ code {
 }
 
 
+/* Media Queries */
+@media (min-width: 600px) {
+  .modal {
+      width: 500px;
+      left: calc(50% - 250px);
+  }
+}
+
+/* xs Media Query Start*/
+@media (min-width: 300px) {
+
+  /* Payouts Screen */
+  .payout-container {
+    margin: 25px 0px 35px 10px;
+    min-width: 100%;
+  }
+
+  .modal {
+    min-width: 470px;
+    left: calc(50% - 230px);
+  }
+
+  /* Payout Modal*/
+  .payment-modal-container{
+    width: 95%;
+    background-color: white;
+    padding: 25px 0px 0px 25px;
+    margin: 0px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  /* Card Component */
+  .cards-container {
+    min-width: 60%;
+    padding: 0px;
+  }
+
+  .card-container {
+    /* min-width: 80%; */
+    margin-left: 20px;
+    min-width: 180px;
+    height: 110px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+  }
+
+  .card-button {
+    display:inline-block;
+    text-transform: capitalize;
+    /* height: 25px; */
+    padding: 0px 15px 0px 15px;
+
+  }
+
+  .card-button:active{
+    
+  }
+
+  .card-button:focus{
+    
+  }
+
+  .card-button:hover{
+
+  }
+    
+
+
+
+
+
+}
+
+/* xs Media Query END*/
+
+/* sm */
+@media (min-width: 640px) {
+  
+}
+
+/* md */
+@media (min-width: 768px) { 
+
+}
+
+/* lg */
+@media (min-width: 1024px) { 
+
+}
+
+/* xl */
+@media (min-width: 1280px) { 
+
+}
+
+/* 2xl */
+@media (min-width: 1536px) {
+
+}

@@ -71,7 +71,7 @@ const Payout = () => {
       <div className="payout-container">
         <h1 className="text-3xl font-bold">Payouts Overview</h1>
         <br />
-        <div className="cards-container flex mb-4">
+        <div className="cards-container xs:flex flex mb-4">
           {/* Card one */}
           <div className="flex-none w-1/3 h-14">
             <Card
